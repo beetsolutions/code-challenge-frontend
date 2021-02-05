@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MarsWeatherApp</string>
+    <string name="app_name">Mars Weather Information</string>
+    <string name="error_view_unknown_error">Unknown error!</string>
 </resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.doro.marsweatherapp.main.data.repository.model.Resource" />
+
+        <import type="com.doro.marsweatherapp.main.data.repository.model.Status" />
+
+        <variable
+            name="viewModel"
+            type="com.doro.marsweatherapp.main.presentation.MainViewModel" />
+
+        <variable
+            name="resource"
+            type="com.doro.marsweatherapp.main.data.repository.model.Resource" />
+
+        <variable
+            name="retryAction"
+            type="com.doro.marsweatherapp.main.data.repository.RetryAction" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:visibleGone="@{resource.status == Status.SUCCESS}"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_weather" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{resource.data == null}"
+            tools:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                app:visibleGone="@{resource.status == Status.LOADING}" />
+
+            <TextView
+                android:id="@+id/errorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@{resource.message ?? @string/error_view_unknown_error}"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="17sp"
+                app:visibleGone="@{resource.status == Status.ERROR}"
+                tools:text="Server error to tye one of the two so please tell me what you think" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/retry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> retryAction.retry()}"
+                android:text="Retry"
+                app:visibleGone="@{resource.status == Status.ERROR}" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
