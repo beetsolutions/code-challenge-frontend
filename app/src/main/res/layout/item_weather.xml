@@ -47,10 +47,8 @@
                     android:text="@{weather.solName}"
                     android:textAllCaps="true"
                     android:textColor="@android:color/black"
-                    android:textSize="17sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/date"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Sol 771" />
@@ -59,153 +57,139 @@
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:text="@{weather.firstDate}"
                     android:textColor="@android:color/black"
-                    android:textSize="28sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name"
                     tools:text="27 Jan" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="vertical"
-                app:layout_constraintStart_toEndOf="@+id/container"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/season"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.seasonFormat}"
-                    android:textAllCaps="true"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    tools:text="Season: Winter" />
 
                 <TextView
                     android:id="@+id/pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Pressure"
+                    android:text="Pressure (Pa)"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date"
                     tools:text="Pressure" />
 
                 <TextView
-                    android:id="@+id/pressureAverage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.pressureAverageFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Pressure Avg: 300" />
-
-                <TextView
-                    android:id="@+id/pressureMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.pressureMinFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Pressure Min: 300" />
-
-                <TextView
-                    android:id="@+id/pressureMax"
+                    android:id="@+id/pressureHigh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{weather.pressureMaxFormat}"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Pressure Max: 300" />
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pressure"
+                    tools:text="High: 230" />
 
                 <TextView
-                    android:id="@+id/wind"
+                    android:id="@+id/pressureLow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Wind"
+                    android:text="@{weather.pressureMinFormat}"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/black"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    tools:text="Wind" />
-
-                <TextView
-                    android:id="@+id/windAverage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.windAverageFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Wind Avg: 300" />
-
-                <TextView
-                    android:id="@+id/windMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.windMinFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Wind Min: 300" />
-
-                <TextView
-                    android:id="@+id/windMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.windMaxFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Wind Max: 300" />
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pressureHigh"
+                    tools:text="Low: 230" />
 
                 <TextView
                     android:id="@+id/temperature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Temperature"
+                    android:text="Temperature (\u2103)"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
                     android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pressureLow"
                     tools:text="Temperature" />
 
                 <TextView
-                    android:id="@+id/temperatureAverage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.temperatureAverageFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Temperature Avg: 300" />
-
-                <TextView
-                    android:id="@+id/temperatureMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{weather.temperatureMinFormat}"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Temperature Min: 300" />
-
-                <TextView
-                    android:id="@+id/temperatureMax"
+                    android:id="@+id/temperatureHigh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{weather.temperatureMaxFormat}"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    tools:text="Temperature Max: 300" />
-            </LinearLayout>
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/temperature"
+                    tools:text="High: 230" />
+
+                <TextView
+                    android:id="@+id/temperatureLow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{weather.temperatureMinFormat}"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/temperatureHigh"
+                    tools:text="Low: 230" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/season"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weather.season}"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Winter" />
+
+            <TextView
+                android:id="@+id/wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Wind (m/s)"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/season"
+                tools:text="Wind (m/s)" />
+
+            <TextView
+                android:id="@+id/windHigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weather.windMaxFormat}"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wind"
+                tools:text="High: 230" />
+
+            <TextView
+                android:id="@+id/windLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weather.windMinFormat}"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/windHigh"
+                tools:text="Low: 230" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

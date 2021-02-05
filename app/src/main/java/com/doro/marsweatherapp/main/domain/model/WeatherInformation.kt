@@ -18,12 +18,10 @@ class WeatherInformation(
     val windMaxFormat =  String.format("Max: %s", wind?.maxValue ?: "N/A")
 
     val pressureAverageFormat = String.format("Avg: %s", pressure?.let { it.averageValue?.let { value -> String.format("%.2f", value).toDouble() }} ?: "N/A")
-    val pressureMinFormat = String.format("Min: %s", pressure?.let { it.maxValue?.let { value -> String.format("%.2f", value).toDouble() }} ?: "N/A")
-    val pressureMaxFormat = String.format("Max: %s", pressure?.let { it.minValue?.let { value -> String.format("%.2f", value).toDouble() }} ?: "N/A")
+    val pressureMinFormat = String.format("Low: %s", pressure?.let { it.maxValue?.let { value -> String.format("%.2f", value).toDouble() }} ?: "N/A")
+    val pressureMaxFormat = String.format("High: %s", pressure?.let { it.minValue?.let { value -> String.format("%.2f", value).toDouble() }} ?: "N/A")
 
     val temperatureAverageFormat = String.format("Avg: %s", temperature?.averageValue ?: "N/A")
     val temperatureMinFormat = String.format("Min: %s", temperature?.minValue ?: "N/A")
     val temperatureMaxFormat = String.format("Max: %s", temperature?.maxValue ?: "N/A")
-
-    val seasonFormat = "Season: $season"
 }
