@@ -37,6 +37,20 @@ The InSight lander uses Sol - mission days - instead of normal dates.
 - Publish the app on your chosen cloud provider
 - Let us know that you've completed the challenge
 
+# Solution approach : MVVM Clean Architecture: Mars Weather App
+
+This repository show cases an implementation of MVVM clean architecture using Koin, Coroutines, Retrofit
+
+#### Following packages are available in te app:
+1. **di**: Dependency providing classes using Koin.
+2. **data/domain**: It contains all the data/domain accessing and manipulating components.
+3. **presentation**: View classes along with their corresponding ViewModel.
+
+#### Device Tests
+##### UI Tests
+Show cases Espresso for UI testing. Main fragment is limited to a ViewModel, each test mocks related
+ViewModel to run the tests.
+
 # License
 
 This project is licensed under MIT. Feel free to use it anyway you see fit.
