@@ -9,7 +9,7 @@ class ApiInterceptor : Interceptor {
         val request = chain.request()
 
         val url = request.url.newBuilder()
-            .addQueryParameter(PARAM_API_ID, "DEMO_KEY")
+            .addQueryParameter(PARAM_API_ID, "GFhPC48DbHZzKDwgBawNHZxLNRxyeT5z9m6GqHV8")
             .addQueryParameter(PARAM_TYPE, "json")
             .addQueryParameter(PARAM_VERSION, "1.0")
             .build()
