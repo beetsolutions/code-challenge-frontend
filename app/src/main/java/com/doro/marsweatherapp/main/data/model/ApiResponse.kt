@@ -24,8 +24,8 @@ sealed class ApiResponse<T> {
                 val errorMessage = if (message.isNullOrEmpty()) {
                     response.message()
                 } else {
-                    val error = Gson().fromJson(message, Error::class.java)
-                    error.error
+                    //val error = Gson().fromJson(message, Error::class.java)
+                    message
                 }
                 ApiErrorResponse(errorMessage ?: "unknown error")
             }

@@ -8,13 +8,13 @@ class Sol(
         @SerializedName("Last_UTC")
         val lastDate: String,
         @SerializedName("Month_ordinal")
-        val ordinal: Int,
+        val ordinal: Int? = 0,
         @SerializedName("Southern_season")
-        val southernSeason: String,
+        val southernSeason: String? = null,
         @SerializedName("Northern_season")
-        val northernSeason: String,
+        val northernSeason: String? = null,
         @SerializedName("Season")
-        val season: String,
+        val season: String? = null,
         @SerializedName("PRE")
         val pressure: Weather? = null,
         @SerializedName("AT")
